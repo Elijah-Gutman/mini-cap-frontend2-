@@ -14,7 +14,7 @@ import { ProductsEditPage } from "./ProductsEditPage";
 import { CartedProductsIndexPage } from "./CartedProductsIndexPage";
 
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-api-fo7c.onrender.com";
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "demo-mini-capstone-api-fo7c.onrender.com";
 axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
