@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ProductsNew } from "./ProductsNew";
+
 export function ProductsNewPage() {
   const navigate = useNavigate();
   const handleCreate = (params) => {

@@ -3,61 +3,43 @@ import { LogoutLink } from "./LogoutLink";
 
 export function Header() {
   return (
-    <header className="bg-gray-800 text-white">
-      <nav className="container mx-auto flex items-center justify-between py-4 px-6">
-        <Link className="text-2xl font-bold hover:text-gray-300" to="/">
-          Amazon Clone
+    <header>
+      <nav className="bg-black text-slate-200 p-4">
+        <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/">
+          Home
         </Link>
-        <button
-          className="block md:hidden text-gray-300 focus:outline-none"
-          type="button"
-          aria-label="Toggle navigation"
-        >
-          <svg
-            className="w-6 h-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
-        <div className="hidden md:flex items-center space-x-6">
-          <Link className="hover:text-gray-300" to="/">
-            Home
-          </Link>
-          <Link className="hover:text-gray-300" to="/products">
-            All Products
-          </Link>
-          <a className="hover:text-gray-300" href="/products/new">
-            New Product
-          </a>
-          <a className="hover:text-gray-300" href="/carted_products">
-            Shopping Cart
-          </a>
-          <Link className="hover:text-gray-300" to="/signup">
-            Signup
-          </Link>
-          <Link className="hover:text-gray-300" to="/login">
-            Login
-          </Link>
-          <LogoutLink />
-        </div>
-        <form className="hidden md:flex items-center space-x-2">
-          <input
-            className="w-40 px-2 py-1 border border-gray-600 rounded bg-gray-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:ring focus:ring-gray-500"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-400"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
+        <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/products">
+          All products
+        </Link>
+        {localStorage.admin === "true" ? (
+          <>
+            <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/products/new">
+              New product
+            </Link>
+          </>
+        ) : null}
+        {localStorage.email ? (
+          <>
+            <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/carted_products">
+              Shopping Cart
+            </Link>
+            <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/orders">
+              Orders
+            </Link>
+
+            <LogoutLink className="p-2 mr-2 rounded-md outline-slate-700 outline hover:bg-slate-200 hover:text-black" />
+          </>
+        ) : (
+          <>
+            <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/signup">
+              Signup
+            </Link>
+            <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/login">
+              Login
+            </Link>
+          </>
+        )}
+        <span className="float-end">{localStorage.email}</span>
       </nav>
     </header>
   );

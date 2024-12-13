@@ -2,7 +2,7 @@ export function HomePage() {
   return (
     <div className="bg-gray-100 min-h-screen py-10">
       <div className="container mx-auto text-center mb-10">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to the Products App!</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">The Future StartUp Takeover!</h1>
         <p className="text-lg text-gray-600 mb-6">Create and share your favorite products with the world.</p>
         <a
           href="/products"

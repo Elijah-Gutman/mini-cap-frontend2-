@@ -12,9 +12,11 @@ import { ProductsNewPage } from "./ProductsNewPage";
 import { ProductsShowPage } from "./ProductsShowPage";
 import { ProductsEditPage } from "./ProductsEditPage";
 import { CartedProductsIndexPage } from "./CartedProductsIndexPage";
+import { OrdersIndexPage } from "./OrdersIndexPage";
+import { OrdersShowPage } from "./OrdersShowPage";
 
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "demo-mini-capstone-api-fo7c.onrender.com";
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-api-fo7c.onrender.com";
 axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
@@ -62,6 +64,16 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/orders",
+        element: <OrdersIndexPage />,
+        loader: () => axios.get("/orders.json").then((response) => response.data),
+      },
+      {
+        path: "/orders/:id",
+        element: <OrdersShowPage />,
+        loader: ({ params }) => axios.get(`/orders/${params.id}.json`).then((response) => response.data),
       },
     ],
   },
