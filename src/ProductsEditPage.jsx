@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { ProductsEdit } from "./Productsedit";
+import { ProductsEdit } from "./ProductsEdit";
 
 export function ProductsEditPage() {
   const currentProduct = useLoaderData();
