@@ -14,7 +14,7 @@ export function ProductsNew({ onCreate }) {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 font-medium mb-1" htmlFor="name">
-              Name
+              Name of product
             </label>
             <input
               id="name"
